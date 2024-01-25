@@ -1,0 +1,57 @@
+EXAMPLES
+
+yt-dlp -F https://www.youtube.com/watch?v=dQw4w9WgXcQ |less
+
+yt-dlp -wc -f  251 https://www.youtube.com/watch?v=9sJUDx7iEJw
+
+yt-dlp -wc -f mp4 -S "res:720"  -a list.urls 
+
+
+OPTIONS
+
+-F  <URL>
+--list-formats  <URL>
+    List available formats of each video.
+
+-w
+--no-overwrites
+    Do not overwrite any files
+
+--force-overwrites
+    Overwrite all video and metadata files.
+    This option includes --no-continue.
+
+-c
+--continue
+    Resume partially downloaded files/fragments
+
+--no-continue
+    Do not resume partially downloaded fragments.
+    If the file is not fragmented, restart download
+    of the entire file.
+
+-R  <RETRIES>
+--retries  <RETRIES>
+    Number of retries or "infinite".
+    Default is 10.
+
+-a  <FILE>
+--batch-file  <FILE>
+    File containing URLs to download ("-" for stdin), one URL per line.
+    Lines starting with "#", ";" or "]" are considered as comments.
+
+-S  "SORTORDER,SORTORDER..."
+--format-sort  "SORTORDER,SORTORDER..."
+    Sort the formats by the fields given:
+    • quality: The quality of the format
+    • vcodec: Video Codec
+      (av01 > vp9.2 > vp9 > h265 > h264 > vp8 > h263 > theora > other)
+    • acodec: Audio Codec
+      (flac/alac > wav/aiff > opus > vorbis > aac > mp4a > mp3 > ac4 > eac3 > ac3 > dts > other)
+    • vext: Video Extension (mp4 > mov > webm > flv > other).
+      If --prefer-free-formats is used, webm is preferred.
+    • aext: Audio Extension (m4a > aac > mp3 > ogg > opus > webm > other).
+      If --prefer-free-formats is used, the order changes to
+      ogg > opus > webm > mp3 > m4a > aac
+    • res: Video resolution, calculated as the smallest dimension.
+
