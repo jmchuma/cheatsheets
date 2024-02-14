@@ -6,6 +6,10 @@ yt-dlp -wc -f  251 https://www.youtube.com/watch?v=9sJUDx7iEJw
 
 yt-dlp -wc -f mp4 -S "res:720"  -a list.urls 
 
+yt-dlp -wc -f mp4 -S "res:720" -N 3 https://www.youtube.com/watch?v=EwTZ2xpQwpA
+
+yt-dlp -wc --cookies-from-browser chromium -o "%(channel)s__%(id)s.%(ext)s" https://www.instagram.com/reel/CzWQQdKtJvi/
+
 
 OPTIONS
 
@@ -55,3 +59,19 @@ OPTIONS
       ogg > opus > webm > mp3 > m4a > aac
     • res: Video resolution, calculated as the smallest dimension.
 
+-N, --concurrent-fragments N
+    Number of fragments of a dash/hlsnative video that should be downloaded
+    concurrently. Default is 1.
+
+--cookies-from-browser BROWSER[+KEYRING][:PROFILE][::CONTAINER]
+    Load cookies from a browser. Supports brave, chrome, chromium, edge,
+    firefox, opera, safari, vivaldi. Optionally, the KEYRING used for decrypting
+    Chromium cookies on Linux, the name/path of the PROFILE to load cookies
+    from, and the CONTAINER name (if Firefox) ("none" for no container) can be
+    given with their respective seperators.
+    By default, all containers of the most recently accessed profile are used.
+    Supported keyrings: basictext, gnomekeyring, kwallet, kwallet5, kwallet6
+
+
+-o, --output [TYPES:]TEMPLATE
+    Output filename template; see "OUTPUT TEMPLATE" in man page for details.
