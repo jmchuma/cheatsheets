@@ -1,0 +1,6 @@
+Command-line tool for controlling NetworkManager
+
+nmcli --ask dev wifi connect <network_name>
+    ask for missing requirements, in this case the password.
+
+nmcli dev wifi connect <network_name> password '<mypassword>'
